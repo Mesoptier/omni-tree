@@ -2,7 +2,10 @@ import { posix as pp } from 'path';
 
 export function tree(callback) {
   let structure = callback(file, directory, symlink);
-  return { structure, walk, map };
+  let result = { structure };
+  result.walk = walk.bind(result);
+  result.map = map.bind(result);
+  return result;
 }
 
 // Shorthands
