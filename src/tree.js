@@ -1,6 +1,6 @@
 import { posix as pp } from 'path';
 
-export default function tree(callback) {
+export function tree(callback) {
   let structure = callback(file, directory, symlink);
   return { structure, walk, map };
 }
