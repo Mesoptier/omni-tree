@@ -1,7 +1,7 @@
 import tree from '../src/tree';
 
 let structure = tree((f, d, s) => {
-  return {
+  return d({
     'd.txt': f('content'),
     'a': d({
       'b': d({
@@ -11,7 +11,7 @@ let structure = tree((f, d, s) => {
       'c': d({ /* Empty directory */ }, { mode: '0775' })
     }),
     'symlink': s('a/b/b1.txt')
-  };
+  });
 });
 
 structure.map((path, name, node) => {
